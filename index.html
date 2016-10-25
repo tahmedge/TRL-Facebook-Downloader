@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<script>
+$(document).ready(function () {
+
+
+window.fbAsyncInit = function () {
+  FB.init({
+    appId: 'APP ID',
+    status: true,
+    cookie: true,
+    xfbml: true,
+    version    : 'v2.5'
+  });
+FB.Event.subscribe('auth.authResponseChange', function (response) {
+  if (response.status === 'connected') {
+    //alert("Successfully connected to Facebook!");
+  }
+  else if (response.status === 'not_authorized') {
+    alert("Login failed!");
+  } else {
+    alert("Unknown error!");
+  }
+});
+};
+}
+</script>
+<body>
+<div style="margin-top:200px; text-align:center" class="container" >
+<a style="height:50px;margin-right:50px" href="http://trlvideodownloader.azurewebsites.net/facebook.php" class="btn btn-primary btn-lg text-center" role="button" target="_blank">Download Videos of Pages in Facebook</a>
+<a style="height:50px;" href="http://trlvideodownloader.azurewebsites.net/facebooknew.php" class="btn btn-danger btn-lg text-center" role="button" target="_blank">Download Videos of Friends/Users in Facebook</a>
+<footer style="bottom: 0;text-align:center;margin-top:150px;">Copyright &copy; All rights reserved to Tahmid Rahman</footer>
+</div>
+</body>
+</html>
